@@ -19,7 +19,7 @@
 
 namespace Doctrine\Common\DataFixtures;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\DBAL\Connection;
 
 /**
  * Interface contract for fixture classes to implement.
@@ -33,5 +33,5 @@ interface FixtureInterface
      *
      * @param ObjectManager $manager
      */
-    public function load(ObjectManager $manager);
+    public function load(Connection $db);
 }
