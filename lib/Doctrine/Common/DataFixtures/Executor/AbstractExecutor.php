@@ -8,6 +8,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\Purger\PurgerInterface;
+use Doctrine\DBAL\Connection;
 
 /**
  * Abstract fixture executor.
@@ -102,10 +103,10 @@ abstract class AbstractExecutor
     /**
      * Load a fixture with the given persistence manager.
      *
-     * @param Doctrine\Common\Persistence\ObjectManager $manager
+     * @param $manager Connection
      * @param FixtureInterface $fixture
      */
-    public function load(ObjectManager $manager, FixtureInterface $fixture)
+    public function load(Connection $manager, FixtureInterface $fixture)
     {
         if ($this->logger) {
             $prefix = '';
@@ -119,7 +120,6 @@ abstract class AbstractExecutor
             $fixture->setReferenceRepository($this->referenceRepository);
         }
         $fixture->load($manager);
-        $manager->clear();
     }
 
     /**
