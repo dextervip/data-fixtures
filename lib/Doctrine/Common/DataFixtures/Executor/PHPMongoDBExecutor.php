@@ -18,7 +18,7 @@ class PHPMongoDBExecutor extends AbstractExecutor {
      *
      * @param Connection $db Connection instance used for persistence.
      */
-    public function __construct(MongoClient $db, $purger = null)
+    public function __construct(\MongoClient $db, $purger = null)
     {
         $this->db = $db;
         if ($purger !== null) {
