@@ -10,7 +10,6 @@ use Doctrine\Common\DataFixtures\Executor\AbstractExecutor;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\SharedFixtureInterface;
-use Doctrine\DBAL\Connection;
 
 class PHPMongoDBExecutor extends AbstractExecutor {
 
@@ -19,7 +18,7 @@ class PHPMongoDBExecutor extends AbstractExecutor {
      *
      * @param Connection $db Connection instance used for persistence.
      */
-    public function __construct(Connection $db, $purger = null)
+    public function __construct(MongoClient $db, $purger = null)
     {
         $this->db = $db;
         if ($purger !== null) {
