@@ -33,5 +33,5 @@ interface FixtureInterface
      *
      * @param ObjectManager $manager
      */
-    public function load(Connection $db);
+    public function load($db);
 }

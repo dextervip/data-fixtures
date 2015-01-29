@@ -106,7 +106,7 @@ abstract class AbstractExecutor
      * @param $manager Connection
      * @param FixtureInterface $fixture
      */
-    public function load(Connection $manager, FixtureInterface $fixture)
+    public function load($manager, FixtureInterface $fixture)
     {
         if ($this->logger) {
             $prefix = '';
